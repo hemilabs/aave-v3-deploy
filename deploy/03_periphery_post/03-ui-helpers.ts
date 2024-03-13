@@ -28,6 +28,7 @@ const func: DeployFunction = async function ({
   // Deploy UiIncentiveDataProvider getter helper
   await deploy("UiIncentiveDataProviderV3", {
     from: deployer,
+    ...COMMON_DEPLOY_PARAMS,
   });
 
   // Deploy UiPoolDataProvider getter helper

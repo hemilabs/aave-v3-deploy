@@ -64,9 +64,7 @@ task(
   const emissionManager = await getEmissionManager();
 
   console.log("--- Current deployer addresses ---");
-  console.table({
-    poolAdmin,
-  });
+  console.table({ poolAdmin });
   console.log("--- Multisig and expected contract addresses ---");
   console.table({
     multisig: desiredAdmin,
@@ -242,22 +240,42 @@ task(
         (await poolAddressesProvider.getAddress(incentivesControllerId)) ===
         rewardsController.address,
     },
-    {
+  ];
+
+  const ParaswapRepayAdapterArtifact = await hre.deployments.getOrNull(
+    "ParaSwapRepayAdapter"
+  );
+  if (ParaswapRepayAdapterArtifact) {
+    const paraswapRepayAdapter = await getOwnableContract(
+      ParaswapRepayAdapterArtifact.address
+    );
+
+    result.push({
       role: "ParaSwapRepayAdapter owner",
       address: await paraswapRepayAdapter.owner(),
       assert: (await paraswapRepayAdapter.owner()) == desiredAdmin,
-    },
-    {
-      role: "ParaSwapSwapAdapter owner",
-      address: await paraswapSwapAdapter.owner(),
-      assert: (await paraswapSwapAdapter.owner()) == desiredAdmin,
-    },
-    {
-      role: "ParaSwapWithdrawSwapAdapter owner",
-      address: await paraswapWithdrawSwapAdapter.owner(),
-      assert: (await paraswapWithdrawSwapAdapter.owner()) == desiredAdmin,
-    },
-  ];
+    });
+  }
+  const paraswapSwapAdapterArtifact = await hre.deployments.getOrNull(
+    "ParaSwapLiquiditySwapAdapter"
+  );
+  if (paraswapSwapAdapterArtifact) {
+    const paraswapSwapAdapter = await getOwnableContract(
+      paraswapSwapAdapterArtifact.address
+    );
+    result.push(
+      {
+        role: "ParaSwapSwapAdapter owner",
+        address: await paraswapSwapAdapter.owner(),
+        assert: (await paraswapSwapAdapter.owner()) == desiredAdmin,
+      },
+      {
+        role: "ParaSwapWithdrawSwapAdapter owner",
+        address: await paraswapWithdrawSwapAdapter.owner(),
+        assert: (await paraswapWithdrawSwapAdapter.owner()) == desiredAdmin,
+      }
+    );
+  }
 
   // Add emission manager check if 3.0.1v
   try {

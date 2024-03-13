@@ -8,6 +8,7 @@ import {
 import { task } from "hardhat/config";
 import { getAddressFromJson, waitForTx } from "../../helpers/utilities/tx";
 import { exit } from "process";
+import chalk from "chalk";
 
 task(
   `renounce-pool-admin`,
@@ -26,10 +27,8 @@ task(
     exit(403);
   }
 
-  console.log("--- CURRENT DEPLOYER  ---");
-  console.table({
-    deployer,
-  });
+  console.log("--- CURRENT ADMIN ---");
+  console.table({ deployer });
   console.log("--- DESIRED  ADMIN ---");
   console.log(desiredAdmin);
 
@@ -42,7 +41,11 @@ task(
   /** Start of Pool Listing Admin transfer ownership */
   const isDeployerPoolAdmin = await aclManager.isPoolAdmin(deployer);
   const isMultisigPoolAdmin = await aclManager.isPoolAdmin(desiredAdmin);
-  if (isDeployerPoolAdmin && isMultisigPoolAdmin) {
+  if (
+    isDeployerPoolAdmin &&
+    isMultisigPoolAdmin &&
+    isDeployerPoolAdmin !== isMultisigPoolAdmin
+  ) {
     const tx = await waitForTx(
       await aclManager.renounceRole(
         await aclManager.POOL_ADMIN_ROLE(),
@@ -61,6 +64,9 @@ task(
     );
   }
   /** Output of results*/
+  if (isDeployerPoolAdmin === isMultisigPoolAdmin) {
+    console.log(chalk.yellow("- [Note:] Deployer and desired admin are same!"));
+  }
   const result = [
     {
       role: "Deployer renounced PoolAdmin",
@@ -70,7 +76,7 @@ task(
       assert: !(await aclManager.isPoolAdmin(deployer)),
     },
     {
-      role: "Owner is still PoolAdmin",
+      role: "Desired Admin is PoolAdmin",
       address: (await aclManager.isPoolAdmin(desiredAdmin)) ? "YES" : "NO",
       assert: await aclManager.isPoolAdmin(desiredAdmin),
     },

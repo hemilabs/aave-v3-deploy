@@ -3,6 +3,7 @@ import { ZERO_ADDRESS } from "../../helpers/constants";
 import {
   ICommonConfiguration,
   eEthereumNetwork,
+  eHemiNetwork,
   eArbitrumNetwork,
   TransferStrategy,
   AssetType,
@@ -173,6 +174,10 @@ export const CommonsConfig: ICommonConfiguration = {
       label: "Stable-EMode",
       assets: ["USDC", "DAI"],
     },
+  },
+  L2PoolEnabled: {
+    [eHemiNetwork.main]: true,
+    [eHemiNetwork.testnet]: true,
   },
   FlashLoanPremiums: {
     total: 0.0009e4,

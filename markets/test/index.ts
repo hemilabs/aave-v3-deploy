@@ -32,7 +32,7 @@ export const AaveMarket: IAaveConfiguration = {
     DAI: strategyDAI,
     USDC: strategyUSDC,
     WETH: strategyWETH,
-    LINK: strategyLINK,
+    // LINK: strategyLINK,
   },
   ReserveAssets: {
     [eEthereumNetwork.main]: {

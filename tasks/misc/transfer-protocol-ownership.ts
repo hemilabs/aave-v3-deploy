@@ -1,10 +1,6 @@
 import { POOL_ADMIN } from "./../../helpers/constants";
 import { FORK } from "./../../helpers/hardhat-config-helpers";
 import {
-  EMISSION_MANAGER_ID,
-  POOL_ADDRESSES_PROVIDER_ID,
-} from "./../../helpers/deploy-ids";
-import {
   getACLManager,
   getEmissionManager,
   getOwnableContract,
@@ -13,12 +9,8 @@ import {
   getWrappedTokenGateway,
 } from "./../../helpers/contract-getters";
 import { task } from "hardhat/config";
-import { getAddressFromJson, waitForTx } from "../../helpers/utilities/tx";
+import { waitForTx } from "../../helpers/utilities/tx";
 import { exit } from "process";
-import {
-  GOVERNANCE_BRIDGE_EXECUTOR,
-  MULTISIG_ADDRESS,
-} from "../../helpers/constants";
 
 task(
   `transfer-protocol-ownership`,
@@ -88,7 +80,8 @@ task(
     console.log(
       "- This market already transferred the ownership to desired multisig"
     );
-    exit(0);
+    // exit(0);
+    return;
   }
   if (currentOwner !== poolAdmin) {
     console.log(
@@ -108,13 +101,20 @@ task(
     await paraswapRepayAdapter.transferOwnership(desiredAdmin);
     console.log("- Transferred ParaswapRepayAdapter ownership");
   }
+  const paraswapSwapAdapterArtifact = await hre.deployments.getOrNull(
+    "ParaSwapLiquiditySwapAdapter"
+  );
+  if (paraswapSwapAdapterArtifact) {
+    const paraswapSwapAdapter = await getOwnableContract(
+      paraswapSwapAdapterArtifact.address
+    );
+    const isDeployerAdminParaswapSwapAdapter =
+      (await paraswapSwapAdapter.owner()) == deployer;
 
-  const isDeployerAdminParaswapSwapAdapter =
-    (await paraswapSwapAdapter.owner()) == deployer;
-
-  if (isDeployerAdminParaswapSwapAdapter) {
-    await paraswapSwapAdapter.transferOwnership(desiredAdmin);
-    console.log("- Transferred ParaswapSwapAdapter ownership");
+    if (isDeployerAdminParaswapSwapAdapter) {
+      await paraswapSwapAdapter.transferOwnership(desiredAdmin);
+      console.log("- Transferred ParaswapSwapAdapter ownership");
+    }
   }
 
   const isDeployerAdminParaswapWithdrawSwapAdapter =
@@ -190,9 +190,9 @@ task(
     (await emissionManager.owner()) === deployer;
   if (isDeployerEmissionManagerOwner) {
     await emissionManager.transferOwnership(desiredAdmin);
-    console.log(`
-    - Transferred owner of EmissionManager from ${deployer} to ${desiredAdmin}
-    `);
+    console.log(
+      `- Transferred owner of EmissionManager from ${deployer} to ${desiredAdmin}`
+    );
   }
   /** End of EmissionManager transfer ownership */
 
@@ -202,19 +202,15 @@ task(
     deployer
   );
   if (isDeployerDefaultAdmin) {
-    console.log(
-      "- Transferring the DEFAULT_ADMIN_ROLE to the multisig address"
-    );
     await waitForTx(
       await aclManager.grantRole(hre.ethers.constants.HashZero, desiredAdmin)
     );
-    console.log(
-      "- Revoking deployer as DEFAULT_ADMIN_ROLE to the multisig address"
-    );
+    console.log("- Grant DEFAULT_ADMIN_ROLE to provided admin");
+    console.log("- Revoking deployer as DEFAULT_ADMIN_ROLE");
     await waitForTx(
       await aclManager.revokeRole(hre.ethers.constants.HashZero, deployer)
     );
-    console.log("- Revoked DEFAULT_ADMIN_ROLE to deployer ");
+    console.log("- Revoked DEFAULT_ADMIN_ROLE of deployer");
   }
 
   /** End of DEFAULT_ADMIN_ROLE transfer ownership */

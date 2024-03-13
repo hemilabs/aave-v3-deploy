@@ -521,6 +521,7 @@ export const setupStkAave = async (
   ]
 ) => {
   const { incentivesProxyAdmin } = await hre.getNamedAccounts();
+  console.log("incentivesProxyAdmin:", incentivesProxyAdmin);
   const proxyAdmin = await hre.ethers.getSigner(incentivesProxyAdmin);
   const implRev1 = await deployStakedAaveV1(args);
   const implRev2 = await deployStakedAaveV2(args);
@@ -530,6 +531,7 @@ export const setupStkAave = async (
     proxy.address,
     "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103" // keccak-256 eip1967.proxy.admin sub 1
   );
+  console.log("proxyAdminSlot:", proxyAdminSlot);
 
   const initialPayloadStkAaveRev1 = implRev1
     .connect(proxyAdmin)
@@ -546,7 +548,9 @@ export const setupStkAave = async (
 
   const stkProxy = proxy.connect(proxyAdmin);
 
-  const proxyWithImpl = implRev1.attach(stkProxy.address);
+  // Use any signer, except admin
+  const anySigner = (await hre.ethers.getSigners())[5];
+  const proxyWithImpl = implRev1.attach(stkProxy.address).connect(anySigner);
 
   if (proxyAdminSlot === EMPTY_STORAGE_SLOT) {
     // Initialize
