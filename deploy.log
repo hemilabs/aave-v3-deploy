@@ -1,0 +1,332 @@
+
+> @aave/deploy-v3@1.55.3 deploy
+> if [ "$SKIP_COMPILE" = 'true' ]; then echo '[Warning] Skipping compilation'; else npm run compile; fi && npx hardhat deploy --no-compile "--network" "hemi-testnet"
+
+
+> @aave/deploy-v3@1.55.3 compile
+> SKIP_LOAD=true npx hardhat compile
+
+Nothing to compile
+No need to generate any newer typings.
+
+Accounts
+========
+┌─────────┬──────────────────────────────────┬──────────────────────────────────────────────┬────────────────────────┐
+│ (index) │               name               │                   account                    │        balance         │
+├─────────┼──────────────────────────────────┼──────────────────────────────────────────────┼────────────────────────┤
+│    0    │            'deployer'            │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │ '1.249916712265106654' │
+│    1    │            'aclAdmin'            │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │ '1.249916712265106654' │
+│    2    │         'emergencyAdmin'         │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │ '1.249916712265106654' │
+│    3    │           'poolAdmin'            │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │ '1.249916712265106654' │
+│    4    │ 'addressesProviderRegistryOwner' │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │ '1.249916712265106654' │
+│    5    │       'treasuryProxyAdmin'       │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │ '1.249916712265106654' │
+│    6    │      'incentivesProxyAdmin'      │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │ '1.249916712265106654' │
+│    7    │   'incentivesEmissionManager'    │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │ '1.249916712265106654' │
+│    8    │     'incentivesRewardsVault'     │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │ '1.249916712265106654' │
+└─────────┴──────────────────────────────────┴──────────────────────────────────────────────┴────────────────────────┘
+deploying "PoolAddressesProviderRegistry" (tx: 0xcc9b8679ccc8bedee1718a67510a9c7b5e73fa8e1f3b55289d9141c9bee6becb)...: deployed at 0x1C8f469e3c1D87B108eC69b165037d5d7365F8C3 with 799512 gas
+[Deployment] Transferred ownership of PoolAddressesProviderRegistry to: 0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d 
+deploying "SupplyLogic" (tx: 0xa57998ca18bc28f17fe63606e5c14947bb98c3fb1e5e0a9ce350a0cce7d01e68)...: deployed at 0xd2a4Ba582dC9fAbF3293C2C46e0aFD6C4B5719b1 with 3432585 gas
+deploying "BorrowLogic" (tx: 0x4bf34a5361e5ffaa3e52dab3510eed2d9b578c96c15c78aab3432c82c7933960)...: deployed at 0x19382707d5a47E74f60053b652Ab34b6e30Febad with 4930630 gas
+deploying "LiquidationLogic" (tx: 0xcbdd86b5e9e9549a711d6e17853142db4d768d466f498c8de68a891e8356d8d9)...: deployed at 0x1c1c67E52942F4dd20a7262a9d17eA2A2e16Acf3 with 3576424 gas
+deploying "EModeLogic" (tx: 0x2c5af202c45c75225729762998e5e78d893c8c021ef04a11255c0df747a9064f)...: deployed at 0xd7c751fA32590451548B100C4f6442F062C9bc8E with 1174568 gas
+deploying "BridgeLogic" (tx: 0xe9efdc99dec82824beea610ea4f35deb1fe7bd9ef8ad297be0d5ef777eaf9121)...: deployed at 0xE27e8095B33FBCBB480AAC5E6e6dA94FbAf2965B with 1969345 gas
+deploying "ConfiguratorLogic" (tx: 0x1fb2d6ecdd77e9388f6d4a8fab6d2b1c988dd84004a0f7529918a38633cccb03)...: deployed at 0x29AD7fE4516909b9e498B5a65339e54791293234 with 1927539 gas
+deploying "FlashLoanLogic" (tx: 0xb585f2854842fd2466b643e9a9dab357f374778170259f71347a6523f4884fb1)...: deployed at 0x15D7BeA7B437C2C1B7e983aBDbD2a3EF70CAf27f with 2447095 gas
+deploying "PoolLogic" (tx: 0xa574b53d431ea28d5eaad39137dcbc28b4f7c186be8978b2a0fac685e83a8898)...: deployed at 0x9ce5FcF17E5aD2e4dc6cD402FCE2DC22D78f4Fbb with 2124309 gas
+deploying "Treasury-Controller" (tx: 0xee86cff283f6f6438467cada8303458deb8d857749f6ac3a00c1017033460e02)...: deployed at 0x51d8deF0fAF1e489332f67b27E7cdAfd9C70BA9c with 701700 gas
+deploying "Treasury-Implementation" (tx: 0x954932c219b258ba06a7d6277a6c206272901078629722a721d71f31b74bfcc4)...: deployed at 0xaDcE6FDdD868E865E4D56000832791fdeb29eeda with 2116188 gas
+Live network: false
+- Deployment of FaucetOwnable contract
+deploying "Faucet-Test" (tx: 0x04c72b58456eb248ba415437381b528f740ccb7e416e51f06c5148f79a516e20)...: deployed at 0xB747015Fa5550039B807135F22C596bd19A1900F with 859979 gas
+- Setting up testnet tokens for "Test" market at "hemi-testnet" network
+Deploy of TestnetERC20 contract AAVE
+deploying "AAVE-TestnetMintableERC20-Test" (tx: 0x33d1f9e23c62a90f7fc81fb57f954bd90cd0e46a5dc50e3f2be564356b48beed)...: deployed at 0x33Aa8F94428C0F891dFd77DD141878aBCaEFEbe8 with 1341117 gas
+Deploy of TestnetERC20 contract DAI
+deploying "DAI-TestnetMintableERC20-Test" (tx: 0x50f0320bf614a9d7f100eb532b7b40bc85825ac06b04b4cdf08bea1acae5bf86)...: deployed at 0x3ED788455Ec4CD272c578f7218bc5c5a8DB3B9B6 with 1341093 gas
+Deploy of TestnetERC20 contract USDC
+deploying "USDC-TestnetMintableERC20-Test" (tx: 0x787ddce2ab2a8001e1833afe5bbe15c7570bb771a4f7e8ab2b24023f8304c8ea)...: deployed at 0x178b526358eB7e66cCE357f452285e5debb1d57F with 1341117 gas
+Deploy of WETH9 mock
+deploying "WETH-TestnetMintableERC20-Test" (tx: 0x3f5b414648999bf2d942173e8d6542effeaf82ef2ecc0bed2d30a947bc2a6594)...: deployed at 0x017CBF62b53313d5eE3aD1288daA95CD39AA11fE with 905117 gas
+incentivesProxyAdmin: 0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d
+proxyAdminSlot: 0x0000000000000000000000000000000000000000000000000000000000000000
+- Initializing admin proxy for stkAAVE
+- Upgraded stkAAVE to Revision 2
+- Upgraded stkAAVE to Revision 3
+stkAAVE:
+- revision: 3
+- name: Staked AAVE
+- symbol: stkAAVE
+- decimals: 18
+Testnet Reserve Tokens
+======================
+AAVE-TestnetMintableERC20-Test 0x33Aa8F94428C0F891dFd77DD141878aBCaEFEbe8
+DAI-TestnetMintableERC20-Test 0x3ED788455Ec4CD272c578f7218bc5c5a8DB3B9B6
+USDC-TestnetMintableERC20-Test 0x178b526358eB7e66cCE357f452285e5debb1d57F
+WETH-TestnetMintableERC20-Test 0x017CBF62b53313d5eE3aD1288daA95CD39AA11fE
+Native Token Wrapper WETH9 0x017CBF62b53313d5eE3aD1288daA95CD39AA11fE
+[Deployment][WARNING] Remember to setup the above testnet addresses at the ReservesConfig field inside the market configuration file and reuse testnet tokens
+[Deployment][WARNING] Remember to setup the Native Token Wrapper (ex WETH or WMATIC) at `helpers/constants.ts`
+[WARNING] Using deployed Testnet tokens instead of ReserveAssets from configuration file
+{
+  AAVE: '0x33Aa8F94428C0F891dFd77DD141878aBCaEFEbe8',
+  DAI: '0x3ED788455Ec4CD272c578f7218bc5c5a8DB3B9B6',
+  USDC: '0x178b526358eB7e66cCE357f452285e5debb1d57F',
+  WETH: '0x017CBF62b53313d5eE3aD1288daA95CD39AA11fE'
+}
+deploying "PoolAddressesProvider-Test" (tx: 0xbbbaeeb7b91a97336b599c0a3634bcbfdb5036685b532c9f1667ddc0ee2fef75)...: deployed at 0x044b615BbB41c6975f0f1508D951Cc988c1DE76c with 2220104 gas
+Added LendingPoolAddressesProvider with address "0x044b615BbB41c6975f0f1508D951Cc988c1DE76c" to registry located at 0x1C8f469e3c1D87B108eC69b165037d5d7365F8C3
+deploying "PoolDataProvider-Test" (tx: 0x07281b816a4f5caf148b3e61b9315d429dd97d1056a42148a249c32822aee625)...: deployed at 0xeA437b70f29Bd7FD4Bb34e98DD5Be06c1aCAcCF7 with 2694642 gas
+[WARNING] Using deployed Testnet tokens instead of ReserveAssets from configuration file
+deploying "AAVE-TestnetPriceAggregator-Test" (tx: 0xeb687ebefe4808d82f5e7bc2e86b7dff0ab827075aa2325a8d4124a2afe907d5)...: deployed at 0xCBfa3f8a32ab63E461B6BBFda881ef01EB4eF75D with 114478 gas
+deploying "DAI-TestnetPriceAggregator-Test" (tx: 0xab045888a2f6cf90791c7fd494415b063fdc98965c3cbe8d4a9a0d1abe84c445)...: deployed at 0x1F394157ad709Def95396Dfb207fEc247e26E385 with 114466 gas
+deploying "USDC-TestnetPriceAggregator-Test" (tx: 0xbeaf06e9fd820e85f9404d21882d39b7ba9fb932521ebbf59687eff3ae225b5e)...: deployed at 0x506ca5A2Ee2408e47cC454698D9fbc513b2e8407 with 114466 gas
+deploying "WETH-TestnetPriceAggregator-Test" (tx: 0x228985f2a78b4e5c0bfe14f20dc82d5c9c9f0eeb2e226380174b4d5a69d509db)...: deployed at 0xb595b0685c6f7c4584742629A94c00A0Ce19fCbb with 114478 gas
+[INFO] Skipped common Pool due current network 'hemi-testnet' is not supported
+deploying "L2Pool-Implementation" (tx: 0x4ae69a11625c2940b3ddfa8a07a980d0b38a21a2b97964e51be64ee17225940c)...: deployed at 0x758455d5E1b533E662E8D14b21F91db5E8A95a49 with 5086907 gas
+Initialized L2Pool Implementation
+deploying "PoolConfigurator-Implementation" (tx: 0xa6cc9dd902d1f2a9c618923d3af4271df105c52b9c5d3d78a02c36d22fad0808)...: deployed at 0x7f29188Ef5fB39E11da6c131BeDa2c3ca9475c58 with 5247664 gas
+Initialized PoolConfigurator Implementation
+deploying "ACLManager-Test" (tx: 0x6b3156eb36f89791befbfe0de40995bc78b44ab91689948861220afd1841307b)...: deployed at 0x016db4F735ED672323AcF4eb1dE4a30f19469E80 with 1155533 gas
+== Market Admins ==
+- ACL Admin 0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d
+- Pool Admin 0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d
+- Emergency Admin 0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d
+[WARNING] Using deployed Testnet tokens instead of ReserveAssets from configuration file
+[WARNING] Using deployed Mock Price Aggregators instead of ChainlinkAggregator from configuration file
+deploying "AaveOracle-Test" (tx: 0x8ca8e6454bcc3ade6814b5c39ffa7d80d0bec319a2f70ba023e5593c344ca882)...: deployed at 0xcB9ee0BB0CeF5dBf21Aad6c420473EC5c44657f8 with 909580 gas
+[Deployment] Added PriceOracle 0xcB9ee0BB0CeF5dBf21Aad6c420473EC5c44657f8 to PoolAddressesProvider
+[Deployment] Attached Pool implementation and deployed proxy contract: 
+- Tx hash: 0x7f8a30968e33d08a89de31d556c0541e5ac193cae7fc7cba7f20fec4c9808fef
+- Deployed Proxy: 0x4E45F86fA6c3e9323315f3b5a9967A1f32D3EEE3
+[Deployment] Attached PoolConfigurator implementation and deployed proxy 
+- Tx hash: 0x028b0e470627b49ebd73dce3995de027201065fa60ec37ee136a9758467aaae2
+- Deployed Proxy: 0x479EBd70d084d90333891a913d0Fa65Cdb1c14D9
+deploying "L2Encoder" (tx: 0x814f4e42618d1aa24ab586ad18ba60d75826dd6796f5756f1d575af61abe8942)...: deployed at 0xACAd4d26A2E61112aB1bcD86e5e361554437fe3D with 1117627 gas
+deploying "EmissionManager" (tx: 0x8b0aa77476d97a441e9a69349273d1de89a253f19b2d1d98b764496ed1033f35)...: deployed at 0x3b9C959f963c5581bA27fF9d55EB494F08eC5F4f with 1170680 gas
+deploying "IncentivesV2-Implementation" (tx: 0xc9000487af864e6d064b9d952130e09243e34f693b519ec219da511a065ed074)...: deployed at 0x50710b8831A785dbE1375167C6E5B269eE4395c8 with 4060341 gas
+[Deployment] Attached Rewards implementation and deployed proxy contract: 
+- Tx hash: 0x45a5ecb85a0f6d6880ee1a245795fdc8b99a811d560eacebac50c76bfee3611a
+deploying "PullRewardsTransferStrategy" (tx: 0xfba12af262993be8b1c0c0ff28e0772f11fa8994f0c1ed7faa6a3e85099770c1)...: deployed at 0xD02d6eC21851092A9cca8a8eb388fdF66bA96F9B with 416430 gas
+deploying "StakedTokenTransferStrategy" (tx: 0x75ffbfecb001852d40a4a08145172b1ff4226e67b02ce2270cc30b39b9edd222)...: deployed at 0x9599c08B6D8D15230Ff5762d7EF07C4698b2D8f1 with 703530 gas
+deploying "AToken-Test" (tx: 0xca77d114585bf6969c929f328f3495684330e0a5f7a0211a859b74de7ddaff81)...: deployed at 0xa0f2e1157087B1a4953ebaE041073052C4DB31eC with 3073759 gas
+deploying "DelegationAwareAToken-Test" (tx: 0xb719adb445bece1412a75540cba543293f4f6982f3b9b8e1506872de21cac42a)...: deployed at 0x4bB7d43185fda73d29BE6bdeF271E778994fb0cA with 3212378 gas
+deploying "StableDebtToken-Test" (tx: 0xdfbb431f703904d306ea4bd08907ade048efcf0c21b8fd94cda5890ea1c26bfa)...: deployed at 0x4F77CF47e6CbaDDE560e2FcF2862b147cc5399D3 with 2416809 gas
+deploying "VariableDebtToken-Test" (tx: 0xac6ed0e2e69da5872af934957d499cfdb77cad8efd791223546b86b3c0266f56)...: deployed at 0x3532d97398b21b4C00C1205B1124422BC3C6D5c8 with 2137217 gas
+deploying "ReserveStrategy-rateStrategyVolatileOne" (tx: 0xe167b4223fb8a014579ad782a4100444b9ea5543eb72b22aa1f898ca71f8be04)...: deployed at 0xa57a7B4E617c244514F9d6e7bdF44bc019544a59 with 722636 gas
+deploying "ReserveStrategy-rateStrategyStableOne" (tx: 0x5011a6dabab58402ecc919fc63aa9a227980612c513b9014b3de04def7564830)...: deployed at 0xbeB08F025921fDdfa0aFd5d7914A4a731a6cDF20 with 722840 gas
+deploying "ReserveStrategy-rateStrategyStableTwo" (tx: 0x8fc459f3ade6ef0c510085bf9d2852d80469a4e181fec1780b4c7c7b9e84891c)...: deployed at 0xf50A0f53B047ED6101DA53b09821667a3f63e32B with 722840 gas
+[WARNING] Using latest deployed Treasury proxy instead of ReserveFactorTreasuryAddress from configuration file
+[WARNING] Using deployed Testnet tokens instead of ReserveAssets from configuration file
+Strategy address for asset AAVE: 0xa57a7B4E617c244514F9d6e7bdF44bc019544a59
+Strategy address for asset DAI: 0xf50A0f53B047ED6101DA53b09821667a3f63e32B
+Strategy address for asset USDC: 0xbeB08F025921fDdfa0aFd5d7914A4a731a6cDF20
+Strategy address for asset WETH: 0xa57a7B4E617c244514F9d6e7bdF44bc019544a59
+- Reserves initialization in 2 txs
+  - Reserve ready for: AAVE, DAI, USDC 
+    - Tx hash: 0xfff45110ad11e6d91849222a528af29a9b4df1b1e1e71fabf1de86285f2aa7d8
+  - Reserve ready for: WETH 
+    - Tx hash: 0x5c790646d4dce822162e15f59b8cc57bfaafcdb59eb72910f1e7a4f3b08453d5
+[Deployment] Initialized all reserves
+- Configure reserves in 1 txs
+  - Init for: AAVE, DAI, USDC, WETH 
+    - Tx hash: 0xd9898716fe34afd076b3d23b0beffd59f978807b07d195160f5fc8b3d416a0c4
+[Deployment] Configured all reserves
+deploying "MockFlashLoanReceiver" (tx: 0xc1f8d166d20437d83c4264f29c0440aed988b02a41e40a952f9d63903e2448d8)...: deployed at 0x58f2C832BF1f172B5Fb8AC3083ed9D65bf4C7c89 with 649899 gas
+deploying "WrappedTokenGatewayV3" (tx: 0xc28d7ba2cbc17a078ad12a94ee3605d514da6b18e81af4f91307d1064b6266a1)...: deployed at 0x8e0F5612641265f0aABcbE693d0A4f8758085f02 with 1807449 gas
+deploying "WalletBalanceProvider" (tx: 0x929a3f33b4092630f69022a78e656351aa5340fcf008cf187586d8cc934abf9f)...: deployed at 0x142c6B4d4DC797283b742ADf2339AE6D5A03826D with 761181 gas
+[Deployments] Skipping the deployment of UiPoolDataProvider due missing constant "chainlinkAggregatorProxy" configuration at ./helpers/constants.ts
+[WARNING] Skipping the deployment of the Paraswap Liquidity Swap and Repay adapters due missing 'ParaswapRegistry' address at pool configuration.
+=== Post deployment hook ===
+- Enable stable borrow in selected assets
+- Checking reserve AAVE , normalized symbol AAVE
+  - Reserve AAVE Borrow Stable Rate follows the expected configuration
+- Checking reserve DAI , normalized symbol DAI
+  - Reserve DAI Borrow Stable Rate follows the expected configuration
+- Checking reserve USDC , normalized symbol USDC
+  - Reserve USDC Borrow Stable Rate follows the expected configuration
+- Checking reserve WETH , normalized symbol WETH
+  - Reserve WETH Borrow Stable Rate follows the expected configuration
+- Review rate strategies
+- Checking reserve AAVE , normalized symbol AAVE
+  - Reserve AAVE Interest Rate Strategy matches the expected configuration
+- Checking reserve DAI , normalized symbol DAI
+  - Reserve DAI Interest Rate Strategy matches the expected configuration
+- Checking reserve USDC , normalized symbol USDC
+  - Reserve USDC Interest Rate Strategy matches the expected configuration
+- Checking reserve WETH , normalized symbol WETH
+  - Reserve WETH Interest Rate Strategy matches the expected configuration
+- Setup Debt Ceiling
+- None of the assets has debt ceiling enabled at market configuration
+- Setup Borrowable assets in Isolation Mode
+- Successfully setup isolation mode for: DAI, USDC
+- Setup E-Modes
+- Added E-Mode:
+  - Label: Stable-EMode
+  - Id: 1
+  - LTV: 9800
+  - LQT: 9850
+  - LQB: 10100
+  - Oracle: undefined with address 0x0000000000000000000000000000000000000000
+  - Added USDC asset to E-Mode Stable-EMode
+  - Added DAI asset to E-Mode Stable-EMode
+- Setup Liquidation protocol fee
+- Successfully setup liquidation protocol fee: AAVE, DAI, USDC, WETH
+Faucet contract to disable minting for asset 0x017CBF62b53313d5eE3aD1288daA95CD39AA11fE
+Faucet contract disabled minting for asset 0x017CBF62b53313d5eE3aD1288daA95CD39AA11fE
+Update reserve for asset 0x017CBF62b53313d5eE3aD1288daA95CD39AA11fE to setReserveBorrowing to false
+Successfully updated reserve for asset 0x017CBF62b53313d5eE3aD1288daA95CD39AA11fE to setReserveBorrowing to false
+- Minting and borrowing of wrapped native token disabled
+- Pool unpaused and accepting deposits.
+--- CURRENT DEPLOYER ADDRESSES ---
+┌────────────────────────────────┬──────────────────────────────────────────────┐
+│            (index)             │                    Values                    │
+├────────────────────────────────┼──────────────────────────────────────────────┤
+│           poolAdmin            │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │
+│   incentivesEmissionManager    │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │
+│       treasuryProxyAdmin       │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │
+│ addressesProviderRegistryOwner │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │
+└────────────────────────────────┴──────────────────────────────────────────────┘
+--- DESIRED GOV ADMIN ---
+0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d
+- This market already transferred the ownership to desired multisig
+--- CURRENT ADMIN ---
+┌──────────┬──────────────────────────────────────────────┐
+│ (index)  │                    Values                    │
+├──────────┼──────────────────────────────────────────────┤
+│ deployer │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │
+└──────────┴──────────────────────────────────────────────┘
+--- DESIRED  ADMIN ---
+0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d
+- [Note:] Deployer and desired admin are same!
+┌─────────┬────────────────────────────────┬─────────────────┬────────┐
+│ (index) │              role              │     address     │ assert │
+├─────────┼────────────────────────────────┼─────────────────┼────────┤
+│    0    │ 'Deployer renounced PoolAdmin' │ 'NOT_RENOUNCED' │ false  │
+│    1    │  'Desired Admin is PoolAdmin'  │      'YES'      │  true  │
+└─────────┴────────────────────────────────┴─────────────────┴────────┘
+--- Current deployer addresses ---
+┌───────────┬──────────────────────────────────────────────┐
+│  (index)  │                    Values                    │
+├───────────┼──────────────────────────────────────────────┤
+│ poolAdmin │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │
+└───────────┴──────────────────────────────────────────────┘
+--- Multisig and expected contract addresses ---
+┌───────────────────────┬──────────────────────────────────────────────┐
+│        (index)        │                    Values                    │
+├───────────────────────┼──────────────────────────────────────────────┤
+│       multisig        │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │
+│ poolAddressesProvider │ '0x044b615BbB41c6975f0f1508D951Cc988c1DE76c' │
+│     rewardsProxy      │ '0x3c6E875C772c837E3d84b49E79A167226a68dFa5' │
+└───────────────────────┴──────────────────────────────────────────────┘
+┌─────────┬──────────────────────────────────────────────────────────┬──────────────────────────────────────────────┬────────┐
+│ (index) │                           role                           │                   address                    │ assert │
+├─────────┼──────────────────────────────────────────────────────────┼──────────────────────────────────────────────┼────────┤
+│    0    │              'PoolAddressesProvider owner'               │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │  true  │
+│    1    │          'PoolAddressesProviderRegistry owner'           │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │  true  │
+│    2    │              'AddressesProvider ACL Admin'               │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │  true  │
+│    3    │    'ACL Manager Default Admin role granted Multisig'     │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │  true  │
+│    4    │    'ACL Manager  Default Admin role revoked Deployer'    │                'NOT REVOKED'                 │ false  │
+│    5    │               'WrappedTokenGateway owner'                │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │  true  │
+│    6    │                 'PoolAdmin is multisig'                  │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │  true  │
+│    7    │               'Deployer revoked PoolAdmin'               │                'NOT REVOKED'                 │ false  │
+│    8    │                     'EmergencyAdmin'                     │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │  true  │
+│    9    │                     'AssetListAdmin'                     │                  'DISABLED'                  │  true  │
+│   10    │       'EmissionManager controller contract Owner'        │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │  true  │
+│   11    │                  'Treasury Proxy Admin'                  │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │  true  │
+│   12    │               'Treasury Controller owner'                │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │  true  │
+│   13    │ 'PoolAddressesProvider.getAddress INCENTIVES_CONTROLLER' │ '0x3c6E875C772c837E3d84b49E79A167226a68dFa5' │  true  │
+│   14    │      'Emission manager role at Rewards Controller'       │ '0x3b9C959f963c5581bA27fF9d55EB494F08eC5F4f' │  true  │
+└─────────┴──────────────────────────────────────────────────────────┴──────────────────────────────────────────────┴────────┘
+
+Accounts after deployment
+========
+┌─────────┬──────────────────────────────────┬──────────────────────────────────────────────┬────────────────────────┐
+│ (index) │               name               │                   account                    │        balance         │
+├─────────┼──────────────────────────────────┼──────────────────────────────────────────────┼────────────────────────┤
+│    0    │            'deployer'            │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │ '1.246461288281826262' │
+│    1    │            'aclAdmin'            │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │ '1.246461288281826262' │
+│    2    │         'emergencyAdmin'         │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │ '1.246461288281826262' │
+│    3    │           'poolAdmin'            │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │ '1.246461288281826262' │
+│    4    │ 'addressesProviderRegistryOwner' │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │ '1.246461288281826262' │
+│    5    │       'treasuryProxyAdmin'       │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │ '1.246461288281826262' │
+│    6    │      'incentivesProxyAdmin'      │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │ '1.246461288281826262' │
+│    7    │   'incentivesEmissionManager'    │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │ '1.246461288281826262' │
+│    8    │     'incentivesRewardsVault'     │ '0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d' │ '1.246461288281826262' │
+└─────────┴──────────────────────────────────┴──────────────────────────────────────────────┴────────────────────────┘
+
+Deployments
+===========
+┌─────────────────────────────────────────┬──────────────────────────────────────────────┐
+│                 (index)                 │                   address                    │
+├─────────────────────────────────────────┼──────────────────────────────────────────────┤
+│      PoolAddressesProviderRegistry      │ '0x1C8f469e3c1D87B108eC69b165037d5d7365F8C3' │
+│               SupplyLogic               │ '0xd2a4Ba582dC9fAbF3293C2C46e0aFD6C4B5719b1' │
+│               BorrowLogic               │ '0x19382707d5a47E74f60053b652Ab34b6e30Febad' │
+│            LiquidationLogic             │ '0x1c1c67E52942F4dd20a7262a9d17eA2A2e16Acf3' │
+│               EModeLogic                │ '0xd7c751fA32590451548B100C4f6442F062C9bc8E' │
+│               BridgeLogic               │ '0xE27e8095B33FBCBB480AAC5E6e6dA94FbAf2965B' │
+│            ConfiguratorLogic            │ '0x29AD7fE4516909b9e498B5a65339e54791293234' │
+│             FlashLoanLogic              │ '0x15D7BeA7B437C2C1B7e983aBDbD2a3EF70CAf27f' │
+│                PoolLogic                │ '0x9ce5FcF17E5aD2e4dc6cD402FCE2DC22D78f4Fbb' │
+│              TreasuryProxy              │ '0x132D85fA93b4BCb61909fA210b8776FddD3Db4e7' │
+│           Treasury-Controller           │ '0x51d8deF0fAF1e489332f67b27E7cdAfd9C70BA9c' │
+│         Treasury-Implementation         │ '0xaDcE6FDdD868E865E4D56000832791fdeb29eeda' │
+│               Faucet-Test               │ '0xB747015Fa5550039B807135F22C596bd19A1900F' │
+│             StakeAave-Proxy             │ '0x73cFe9fdee48bd68A75C9Ec838F2781D13AccA62' │
+│     StakeAave-REV-1-Implementation      │ '0xeDf3B0796cD3C44c430C6aCf41555f76c5815532' │
+│     StakeAave-REV-2-Implementation      │ '0x88d271CfAEB999C37E52B418f9080B4441a513fc' │
+│     StakeAave-REV-3-Implementation      │ '0xFAfE66bB00Bc805A7Bc264D9272909693d02dBE5' │
+│       PoolAddressesProvider-Test        │ '0x044b615BbB41c6975f0f1508D951Cc988c1DE76c' │
+│          PoolDataProvider-Test          │ '0xeA437b70f29Bd7FD4Bb34e98DD5Be06c1aCAcCF7' │
+│    AAVE-TestnetPriceAggregator-Test     │ '0xCBfa3f8a32ab63E461B6BBFda881ef01EB4eF75D' │
+│     DAI-TestnetPriceAggregator-Test     │ '0x1F394157ad709Def95396Dfb207fEc247e26E385' │
+│    USDC-TestnetPriceAggregator-Test     │ '0x506ca5A2Ee2408e47cC454698D9fbc513b2e8407' │
+│    WETH-TestnetPriceAggregator-Test     │ '0xb595b0685c6f7c4584742629A94c00A0Ce19fCbb' │
+│              CalldataLogic              │ '0xeE103a0B8F41F549ADAf6Df5dE919386f81f939D' │
+│          L2Pool-Implementation          │ '0x758455d5E1b533E662E8D14b21F91db5E8A95a49' │
+│     PoolConfigurator-Implementation     │ '0x7f29188Ef5fB39E11da6c131BeDa2c3ca9475c58' │
+│           ReservesSetupHelper           │ '0x38A61ced012550F1d6Bc5672aa8D33479c51F2e8' │
+│             ACLManager-Test             │ '0x016db4F735ED672323AcF4eb1dE4a30f19469E80' │
+│             AaveOracle-Test             │ '0xcB9ee0BB0CeF5dBf21Aad6c420473EC5c44657f8' │
+│             Pool-Proxy-Test             │ '0x4E45F86fA6c3e9323315f3b5a9967A1f32D3EEE3' │
+│       PoolConfigurator-Proxy-Test       │ '0x479EBd70d084d90333891a913d0Fa65Cdb1c14D9' │
+│                L2Encoder                │ '0xACAd4d26A2E61112aB1bcD86e5e361554437fe3D' │
+│             EmissionManager             │ '0x3b9C959f963c5581bA27fF9d55EB494F08eC5F4f' │
+│       IncentivesV2-Implementation       │ '0x50710b8831A785dbE1375167C6E5B269eE4395c8' │
+│             IncentivesProxy             │ '0x3c6E875C772c837E3d84b49E79A167226a68dFa5' │
+│       PullRewardsTransferStrategy       │ '0xD02d6eC21851092A9cca8a8eb388fdF66bA96F9B' │
+│       StakedTokenTransferStrategy       │ '0x9599c08B6D8D15230Ff5762d7EF07C4698b2D8f1' │
+│               AToken-Test               │ '0xa0f2e1157087B1a4953ebaE041073052C4DB31eC' │
+│       DelegationAwareAToken-Test        │ '0x4bB7d43185fda73d29BE6bdeF271E778994fb0cA' │
+│          StableDebtToken-Test           │ '0x4F77CF47e6CbaDDE560e2FcF2862b147cc5399D3' │
+│         VariableDebtToken-Test          │ '0x3532d97398b21b4C00C1205B1124422BC3C6D5c8' │
+│ ReserveStrategy-rateStrategyVolatileOne │ '0xa57a7B4E617c244514F9d6e7bdF44bc019544a59' │
+│  ReserveStrategy-rateStrategyStableOne  │ '0xbeB08F025921fDdfa0aFd5d7914A4a731a6cDF20' │
+│  ReserveStrategy-rateStrategyStableTwo  │ '0xf50A0f53B047ED6101DA53b09821667a3f63e32B' │
+│            AAVE-AToken-Test             │ '0x4e72523b84539eD35506Dc31357937Dd2ba48ECB' │
+│       AAVE-VariableDebtToken-Test       │ '0x62B431C91F0907F210AE57AC4F9C1017aCb945D9' │
+│        AAVE-StableDebtToken-Test        │ '0x6CE9FE4520f6D86bCE461A208818e25b7A8cfaF7' │
+│             DAI-AToken-Test             │ '0x733eBAA49Eb389A532CD5324Ad49Ad36c0D5738B' │
+│       DAI-VariableDebtToken-Test        │ '0x54A991Ca67A1E85Ff0b1d6bAB12F584a4926CE7d' │
+│        DAI-StableDebtToken-Test         │ '0xca52502928b53e669B2a48635BCd657d0230f71d' │
+│            USDC-AToken-Test             │ '0x8b3f2c5e4bb34C2Ce6cb825964DF497004A2212F' │
+│       USDC-VariableDebtToken-Test       │ '0x1D6e6A8a1207c99175f3956E117384C8266da8D8' │
+│        USDC-StableDebtToken-Test        │ '0x8da7D77024c1fCaE4631Aa51F8f1C6f433B21B66' │
+│            WETH-AToken-Test             │ '0x1F259A43Fb3546BC8005D4DE2df3A5369eecfe58' │
+│       WETH-VariableDebtToken-Test       │ '0x076E8AA63feA2ae24DBd596efA19D75EEb80A9c3' │
+│        WETH-StableDebtToken-Test        │ '0x278703A67462f9708039a1e444144D102a84C346' │
+│          MockFlashLoanReceiver          │ '0x58f2C832BF1f172B5Fb8AC3083ed9D65bf4C7c89' │
+│          WrappedTokenGatewayV3          │ '0x8e0F5612641265f0aABcbE693d0A4f8758085f02' │
+│          WalletBalanceProvider          │ '0x142c6B4d4DC797283b742ADf2339AE6D5A03826D' │
+└─────────────────────────────────────────┴──────────────────────────────────────────────┘
+
+Mintable Reserves and Rewards
+┌────────────────────────────────┬──────────────────────────────────────────────┐
+│            (index)             │                   address                    │
+├────────────────────────────────┼──────────────────────────────────────────────┤
+│ AAVE-TestnetMintableERC20-Test │ '0x33Aa8F94428C0F891dFd77DD141878aBCaEFEbe8' │
+│ DAI-TestnetMintableERC20-Test  │ '0x3ED788455Ec4CD272c578f7218bc5c5a8DB3B9B6' │
+│ USDC-TestnetMintableERC20-Test │ '0x178b526358eB7e66cCE357f452285e5debb1d57F' │
+│ WETH-TestnetMintableERC20-Test │ '0x017CBF62b53313d5eE3aD1288daA95CD39AA11fE' │
+└────────────────────────────────┴──────────────────────────────────────────────┘
