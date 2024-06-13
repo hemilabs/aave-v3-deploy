@@ -12,6 +12,7 @@ import {
   eFantomNetwork,
   eOptimismNetwork,
   eBaseNetwork,
+  eHemiNetwork,
 } from "./types";
 
 require("dotenv").config();
@@ -21,6 +22,8 @@ export const DEFAULT_GAS_PRICE = 8000000000;
 export const INFURA_KEY = process.env.INFURA_KEY || "";
 export const ALCHEMY_KEY = process.env.ALCHEMY_KEY || "";
 export const TENDERLY_FORK_ID = process.env.TENDERLY_FORK_ID || "";
+export const HEMI_NODE_URL = process.env.HEMI_NODE_URL || "";
+export const HEMI_TESTNET_NODE_URL = process.env.HEMI_TESTNET_NODE_URL || "";
 export const FORK = (process.env.FORK || "") as eNetwork;
 export const FORK_BLOCK_NUMBER = process.env.FORK_BLOCK_NUMBER
   ? parseInt(process.env.FORK_BLOCK_NUMBER)
@@ -98,6 +101,8 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
   [eBaseNetwork.base]: `https://base-mainnet.g.alchemy.com/v2/${getAlchemyKey(
     eBaseNetwork.base
   )}`,
+  [eHemiNetwork.main]: HEMI_NODE_URL,
+  [eHemiNetwork.testnet]: HEMI_TESTNET_NODE_URL,
 };
 
 export const LIVE_NETWORKS: iParamsPerNetwork<boolean> = {
@@ -109,6 +114,8 @@ export const LIVE_NETWORKS: iParamsPerNetwork<boolean> = {
   [eFantomNetwork.main]: true,
   [eOptimismNetwork.main]: true,
   [eBaseNetwork.base]: true,
+  [eHemiNetwork.main]: true,
+  [eHemiNetwork.testnet]: false,
 };
 
 const GAS_PRICE_PER_NET: iParamsPerNetwork<string | number> = {

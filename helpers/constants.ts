@@ -6,6 +6,7 @@ import {
   eEthereumNetwork,
   eFantomNetwork,
   eHarmonyNetwork,
+  eHemiNetwork,
   eOptimismNetwork,
   ePolygonNetwork,
 } from "./types";
@@ -142,6 +143,8 @@ export const POOL_ADMIN: Record<string, string> = {
   [eBaseNetwork.base]: "0xA9F30e6ED4098e9439B2ac8aEA2d3fc26BcEbb45",
   [eBaseNetwork.baseGoerli]: "0xA9F30e6ED4098e9439B2ac8aEA2d3fc26BcEbb45",
   [eEthereumNetwork.tenderly]: ETHEREUM_SHORT_EXECUTOR,
+  [eHemiNetwork.main]: "0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d", // TODO: It can be safe, timelock or EAO
+  [eHemiNetwork.testnet]: "0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d",
 };
 
 export const EMERGENCY_ADMIN: Record<string, string> = {
@@ -152,6 +155,8 @@ export const EMERGENCY_ADMIN: Record<string, string> = {
   [eOptimismNetwork.main]: "0xE50c8C619d05ff98b22Adf991F17602C774F785c",
   [ePolygonNetwork.polygon]: "0x1450F2898D6bA2710C98BE9CAF3041330eD5ae58",
   [eEthereumNetwork.main]: ETHEREUM_SHORT_EXECUTOR,
+  [eHemiNetwork.main]: "0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d", // TODO: It can be safe, timelock or EAO
+  [eHemiNetwork.testnet]: "0x169e2FfC1c6b229b04E65A431434bF0e8eD9563d",
 };
 
 export const DEFAULT_NAMED_ACCOUNTS = {
@@ -171,10 +176,10 @@ export const DEFAULT_NAMED_ACCOUNTS = {
     default: 0,
   },
   treasuryProxyAdmin: {
-    default: 1,
+    default: 0,
   },
   incentivesProxyAdmin: {
-    default: 1,
+    default: 0,
   },
   incentivesEmissionManager: {
     default: 0,

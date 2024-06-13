@@ -546,7 +546,9 @@ export const setupStkAave = async (
 
   const stkProxy = proxy.connect(proxyAdmin);
 
-  const proxyWithImpl = implRev1.attach(stkProxy.address);
+  // Use any signer, except admin
+  const anySigner = (await hre.ethers.getSigners())[5];
+  const proxyWithImpl = implRev1.attach(stkProxy.address).connect(anySigner);
 
   if (proxyAdminSlot === EMPTY_STORAGE_SLOT) {
     // Initialize

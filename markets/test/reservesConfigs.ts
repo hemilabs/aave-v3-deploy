@@ -66,7 +66,7 @@ export const strategyWETH = {
   liquidationBonus: "10500",
   liquidationProtocolFee: "1000",
   borrowingEnabled: true,
-  stableBorrowRateEnabled: true,
+  stableBorrowRateEnabled: false,
   flashLoanEnabled: true,
   reserveDecimals: "18",
   aTokenImpl: eContractid.AToken,
