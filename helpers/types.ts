@@ -18,9 +18,15 @@ export type eNetwork =
   | eFantomNetwork
   | eOptimismNetwork
   | eTenderlyNetwork
-  | eBaseNetwork;
+  | eBaseNetwork
+  | eHemiNetwork;
 
 type eTenderlyNetwork = "tenderly";
+
+export enum eHemiNetwork {
+  main = "hemi",
+  testnet = "hemi-testnet",
+}
 
 export enum eFantomNetwork {
   main = "fantom",

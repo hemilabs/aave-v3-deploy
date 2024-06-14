@@ -12,6 +12,7 @@ import {
   eEthereumNetwork,
   eFantomNetwork,
   eHarmonyNetwork,
+  eHemiNetwork,
   eOptimismNetwork,
   ePolygonNetwork,
   eBaseNetwork,
@@ -71,6 +72,11 @@ export default {
     kovan: getCommonNetworkConfig(eEthereumNetwork.kovan, 42),
     rinkeby: getCommonNetworkConfig(eEthereumNetwork.rinkeby, 4),
     ropsten: getCommonNetworkConfig(eEthereumNetwork.ropsten, 3),
+    [eHemiNetwork.main]: getCommonNetworkConfig(eHemiNetwork.main, 43111),
+    [eHemiNetwork.testnet]: getCommonNetworkConfig(
+      eHemiNetwork.testnet,
+      743111
+    ),
     [ePolygonNetwork.polygon]: getCommonNetworkConfig(
       ePolygonNetwork.polygon,
       137
